@@ -14,8 +14,8 @@ class Stock(object):
 conn_string = 'sqlite:///Stock.db'
 engine = create_engine(conn_string)
 metadata = MetaData(engine)
-metadata.reflect(only=['meta_stock'])
-stock = metadata.tables['meta_stock']
+metadata.reflect(only=['hnx'])
+stock = metadata.tables['hnx']
 
 stock_mapper = mapper(Stock, stock)
 
@@ -26,7 +26,7 @@ stock_mapper = mapper(Stock, stock)
 Session = sessionmaker(bind=engine)
 session = Session()
 
-with open('hsx.csv', 'r') as csv_file:
+with open('hnx.csv', 'r') as csv_file:
     csv_reader = csv.reader(csv_file)
     buffer = []
     for row in csv_reader:
